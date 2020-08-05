@@ -20,44 +20,7 @@ object ETLUtil {
   val sqlContext: SQLContext = sparkSession.sqlContext
 
 
-  //val dataFrame: DataFrame = sqlContext.read.format("json").load("in/weather.json")
 
-  //val sql1 = "select result.data.date from table"
-
-
-  /* val sql2 = "select result.data.category  from table"
-
-   val sql3 = "select result.data.author_name from table"
-   val sql4 = "select result.data.url from table"*/
-
-  /*def main(args: Array[String]): Unit = {
-
-    println("++++++++++++++++")
-    //  toCount(sql1).foreach(println)
-    println("++++++++++++++++")
-    toCount(sql2).foreach(println)
-    println("++++++++++++++++")
-    toCount(sql3).foreach(println)
-    println("++++++++++++++++")
-    toCount(sql4).foreach(println)
-
-
-    savecategory( "category")
-    saveauthor_name("author_name")
-    saveurl("url")
-    close
-
-  }*/
-
-  /*查询数据库
-  * */
-
-  /*保存category
-  * */
-  /*def  readdata(readFile:String):DataFrame={
-    val dataFrame: DataFrame = sqlContext.read.format("json").load(readFile)
-    dataFrame
-  }*/
 
   def savedata1(table: String, sql: String): Unit = {
 
@@ -74,40 +37,9 @@ object ETLUtil {
     df.show()
   }
 
-  /*author_name
-  * */
-  /*  def savedata2(table: String,sql :String): Unit = {
 
-
-    val (url: String, props: Properties) = resouces
-    import sparkSession.implicits._
-    val juhe: RDD[data] = toCount(sql).map(a => {
-      data(a._1, a._2)
-    })
-    val df: DataFrame = juhe.toDF()
-
-
-    df.write.mode("append").jdbc(url, table, props)
-    df.show()
-  }
-  /*保存url
-  * */
-   def savedata3(table: String,sql:String): Unit = {
-
-
-    val (url: String, props: Properties) = resouces
-    import sparkSession.implicits._
-    val juhe: RDD[data] = toCount(sql).map(a => {
-      data(a._1, a._2)
-    })
-    val df: DataFrame = juhe.toDF()
-
-
-    df.write.mode("append").jdbc(url, table, props)
-    df.show()
-  }*/
   def resouces = {
-    val url = "jdbc:mysql://47.100.185.251:3306/db_juhe?useUnicode=true&characterEncoding=UTF-8"
+    val url = "jdbc:mysql://localhost:3306/db_juhe?useUnicode=true&characterEncoding=UTF-8"
     val props = new Properties()
     props.put("user", "root")
     props.put("password", "rootroot")
